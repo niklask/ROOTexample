@@ -28,7 +28,6 @@ MYCFLAGS = -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS
 
 $(srcdir)/root_dict.cpp: $(rootcommon_CLASSDEFS)
 	$(ROOTCINT_BIN) -v -f $@ -c -I$(top_srcdir)/root $^ LinkDef.h
-#$(ROOTCINT_BIN) -v -f $@ -c -p -I$(top_srcdir)/root $(MYCFLAGS) $(ROOTCINT_FLAGS) $^ LinkDef.h
 
 lib_LTLIBRARIES = libROOTobject.la
 libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE) root_dict.cpp

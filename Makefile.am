@@ -5,6 +5,8 @@
 
 SUBDIRS = root src
 
+EXTRA_DIST = test/macro.C test/rootlogon.C
+
 # extra clean target for Sun CC compiler and generated distribution tarball
 clean-local:
 	-rm -rf SunWS_cache

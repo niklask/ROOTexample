@@ -18,7 +18,6 @@ MyROOTObject::MyROOTObject(int ival, double dval, std::string &name)
 
 MyROOTObject::~MyROOTObject()
 {
-    // Do nothing for now
 }
 
 int MyROOTObject::getIntValue()

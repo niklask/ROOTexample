@@ -124,7 +124,9 @@ void overwriteRootFile()
 
 												std::string name = "testobj";
 												MyROOTObject* pNewObj = NULL;
-												pNewObj = new MyROOTObject(42, 5.91e2, name);
+												int ival = rand() % 100 + 1;
+												double dval = (double)(rand() % 1000 + 1)/1000.0;
+												pNewObj = new MyROOTObject(ival, dval, name);
             if (pNewObj != NULL) {
 																std::cout << pNewObj->GetName() << ": "
 																										<< pNewObj->getIntValue() << "; "

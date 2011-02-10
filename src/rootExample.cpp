@@ -24,7 +24,7 @@ int createRootFile()
     
     std::string name = "testobj";
     MyROOTObject* pMyObj = new MyROOTObject(17, 1.2e3, name);
-    std::cout << *pMyObj;
+    std::cout << *pMyObj << std::cout;
 
     pTestDir->cd();
     pMyObj->Write(pMyObj->GetName());
@@ -52,7 +52,7 @@ void loadRootFile()
             std::string name = "testobj";
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
-                std::cout << *pMyObj;
+                std::cout << *pMyObj << std::cout;
             }
         }
 
@@ -78,14 +78,14 @@ void appendRootFile()
             std::string name = "testobj";
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
-                std::cout << *pMyObj;
+                std::cout << *pMyObj << std::cout;
             }
 
 												name = "newobj";
 												MyROOTObject* pNewObj = NULL;
 												pNewObj = new MyROOTObject(42, 5.9e2, name);
             if (pNewObj != NULL) {
-                std::cout << *pMyObj;
+                std::cout << *pMyObj << std::cout;
 																pNewObj->Write(pNewObj->GetName());
             }
         }
@@ -116,7 +116,7 @@ void overwriteRootFile()
 												double dval = (double)(rand() % 1000 + 1)/1000.0;
 												pNewObj = new MyROOTObject(ival, dval, name);
             if (pNewObj != NULL) {
-                std::cout << *pNewObj;
+                std::cout << *pNewObj << std::cout;
 																pNewObj->Write(pNewObj->GetName(), TObject::kOverwrite);
             }
         }

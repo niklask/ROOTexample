@@ -25,10 +25,6 @@ int createRootFile()
     std::string name = "testobj";
     MyROOTObject* pMyObj = new MyROOTObject(17, 1.2e3, name);
     std::cout << *pMyObj;
-    //std::cout << pMyObj->GetName() << ": "
-				//										<< pMyObj->getIntValue() << "; "
-				//										<< pMyObj->getDoubleValue()
-				//										<< std::endl;
 
     pTestDir->cd();
     pMyObj->Write(pMyObj->GetName());
@@ -57,10 +53,6 @@ void loadRootFile()
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
                 std::cout << *pMyObj;
-																//std::cout << pMyObj->GetName() << ": "
-																//										<< pMyObj->getIntValue() << "; "
-																//										<< pMyObj->getDoubleValue()
-																//										<< std::endl;
             }
         }
 
@@ -87,10 +79,6 @@ void appendRootFile()
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
                 std::cout << *pMyObj;
-																//std::cout << pMyObj->GetName() << ": "
-																//										<< pMyObj->getIntValue() << "; "
-																//										<< pMyObj->getDoubleValue()
-																//										<< std::endl;
             }
 
 												name = "newobj";
@@ -98,10 +86,6 @@ void appendRootFile()
 												pNewObj = new MyROOTObject(42, 5.9e2, name);
             if (pNewObj != NULL) {
                 std::cout << *pMyObj;
-																//std::cout << pNewObj->GetName() << ": "
-																//										<< pNewObj->getIntValue() << "; "
-																//										<< pNewObj->getDoubleValue()
-																//										<< std::endl;
 																pNewObj->Write(pNewObj->GetName());
             }
         }
@@ -133,10 +117,6 @@ void overwriteRootFile()
 												pNewObj = new MyROOTObject(ival, dval, name);
             if (pNewObj != NULL) {
                 std::cout << *pNewObj;
-																//std::cout << pNewObj->GetName() << ": "
-																//										<< pNewObj->getIntValue() << "; "
-																//										<< pNewObj->getDoubleValue()
-																//										<< std::endl;
 																pNewObj->Write(pNewObj->GetName(), TObject::kOverwrite);
             }
         }

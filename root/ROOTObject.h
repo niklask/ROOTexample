@@ -21,11 +21,13 @@ public:
     double getDoubleValue();
     void setDoubleValue(double value);
 
+    friend std::ostream& operator << (std::ostream& os, const MyROOTObject& object);
+
 private:
     int m_int;
     double m_double;
 
-    ClassDef(MyROOTObject, 1);
+    ClassDef(MyROOTObject, 2);
 
 };
 

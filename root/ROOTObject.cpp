@@ -1,3 +1,4 @@
+#include <iostream>
 #include "ROOTObject.h"
 
 ClassImp(MyROOTObject);
@@ -38,4 +39,12 @@ double MyROOTObject::getDoubleValue()
 void MyROOTObject::setDoubleValue(double value)
 {
     m_double = value;
+}
+
+std::ostream& operator << (std::ostream& os, const MyROOTObject& object)
+{
+    os << "MyROOTObject ' " << object.GetName() 
+       << "' { m_int = " << object.m_int
+       << "; m_double = " << object.m_double 
+       << " }" << std::endl; 
 }

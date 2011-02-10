@@ -9,6 +9,8 @@ dnl Do not forget to update library interface versions
 AM_INIT_AUTOMAKE(ROOTobject, 0.1.0)
 AM_CONFIG_HEADER(config.h)
 
+AC_CONFIG_MACRO_DIR([m4])
+
 dnl Do compilation tests with C++
 AC_LANG_CPLUSPLUS
 

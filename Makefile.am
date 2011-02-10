@@ -3,6 +3,8 @@
 # Author: Niklas Karlsson <nkarlsson@adlerplanetarium.org>
 #
 
+ACLOCAL_AMFLAGS = -I m4
+
 SUBDIRS = root src
 
 EXTRA_DIST = test/macro.C test/rootlogon.C

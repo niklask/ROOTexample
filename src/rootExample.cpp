@@ -125,7 +125,7 @@ void overwriteRootFile()
             if (pNewObj != NULL) {
                 std::cout << *pNewObj << std::endl;
 																pNewObj->Write(pNewObj->GetName(), TObject::kOverwrite);
-                delete pMyObj;
+                delete pNewObj;
             }
         }
 

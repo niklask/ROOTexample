@@ -62,6 +62,7 @@ void loadRootFile()
         }
 
         if (pRootFile->IsOpen() && !pRootFile->IsZombie()) {
+            delete pTestDir;
             pRootFile->Close();
             delete pRootFile;
         }

@@ -29,6 +29,10 @@ int createRootFile()
     pTestDir->cd();
     pMyObj->Write(pMyObj->GetName());
 
+    if (pMyObj != NULL) {
+        delete pMyObj;
+    }
+
     if (pRootFile != NULL) {
         if (pRootFile->IsOpen() && !pRootFile->IsZombie()) {
             pRootFile->Close();
@@ -53,6 +57,7 @@ void loadRootFile()
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
                 std::cout << *pMyObj << std::endl;
+                delete pMyObj;
             }
         }
 
@@ -79,6 +84,7 @@ void appendRootFile()
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
                 std::cout << *pMyObj << std::endl;
+                delete pMyObj;
             }
 
 												name = "newobj";
@@ -87,6 +93,7 @@ void appendRootFile()
             if (pNewObj != NULL) {
                 std::cout << *pMyObj << std::endl;
 																pNewObj->Write(pNewObj->GetName());
+                delete pNewObj;
             }
         }
 
@@ -118,6 +125,7 @@ void overwriteRootFile()
             if (pNewObj != NULL) {
                 std::cout << *pNewObj << std::endl;
 																pNewObj->Write(pNewObj->GetName(), TObject::kOverwrite);
+                delete pMyObj;
             }
         }
 

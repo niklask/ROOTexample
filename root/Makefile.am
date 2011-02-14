@@ -26,10 +26,19 @@ ROOTCINT_FLAGS = -D__extension__="" -D__attribute__\\\(X\\\)="" -D__const=const 
 
 MYCFLAGS = -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS
 
-$(srcdir)/root_dict.cpp: $(rootcommon_CLASSDEFS)
-	$(ROOTCINT_BIN) -v -f $@ -c -I$(top_srcdir)/root $^ LinkDef.h
+# this is a "hack" to make rootcint recreate root_dict.cpp and root_dict.h
+# when only root_dict.h is missing
+$(srcdir)/root_dict.h: $(rootcommon_CLASSDEFS)
+	$(ROOTCINT_BIN) -v -f $(srcdir)/root_dict.cpp -c -p -I$(top_srcdir)/root $^ LinkDef.h
+
+$(srcdir)/root_dict.cpp $(srcdir)/root_dict.h: $(rootcommon_CLASSDEFS)
+	$(ROOTCINT_BIN) -v -f $@ -c -p -I$(top_srcdir)/root $^ LinkDef.h
 
 lib_LTLIBRARIES = libROOTobject.la
-libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE) root_dict.cpp
+libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE) root_dict.cpp root_dict.h
 libROOTobject_la_CXXFLAGS = $(MYCFLAGS) $(EXT_INCLUDES)
 libROOTobject_la_LDFLAGS = -version-info $(LIB_VERSION)
+
+# make sure to delete generated code when with 'make clean'
+clean-local:
+	-rm -rf root_dict.h root_dict.cpp

@@ -1,5 +1,10 @@
 2011-02-11 Niklas Karlsson <nkarlsson@physics.umn.edu>
 	
+	* Fixed problem with rootcint when running make distcheck
+	* Changed default -I path in test/rootlogon.C
+	
+2011-02-11 Niklas Karlsson <nkarlsson@physics.umn.edu>
+	
 	* Multiple bug fixes and memory leak fixes
 	
 2010-11-30 Niklas Karlsson <nkarlsson@physics.umn.edu>

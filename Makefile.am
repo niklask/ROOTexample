@@ -1,6 +1,6 @@
 ## Process this file with automake to produce Makefile.in
 #
-# Author: Niklas Karlsson <nkarlsson@adlerplanetarium.org>
+# Author: Niklas Karlsson <nkarlsson@physics.umn.edu>
 #
 
 ACLOCAL_AMFLAGS = -I m4

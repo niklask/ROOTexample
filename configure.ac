@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script
 dnl
-dnl Author: Niklas Karlsson <nkarlsson@adlerplanetarium.org>
+dnl Author: Niklas Karlsson <nkarlsson@physics.umn.edu>
 dnl
 
 AC_INIT(root/ROOTObject.h)

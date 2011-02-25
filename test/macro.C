@@ -18,8 +18,7 @@ void macro()
             std::string name = "testobj";
             pMyObj = (MyROOTObject*)pTestDir->Get(name.c_str());
             if (pMyObj != NULL) {
-                std::cout << pMyObj->getIntValue() << std::endl;
-                std::cout << pMyObj->getDoubleValue() << std::endl;
+                std::cout << *pMyObj << std::endl;
             }
         }
 

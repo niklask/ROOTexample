@@ -26,7 +26,7 @@ ROOTCINT_FLAGS = -D__extension__="" -D__attribute__\\\(X\\\)="" -D__const=const 
 
 MYCFLAGS = -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS
 
-root_dict.cpp root_dict.h: $(rootcommon_CLASSDEFS)
+root_dict.cpp: $(rootcommon_CLASSDEFS)
 	$(ROOTCINT_BIN) -v -f $@ -c -p -I$(top_srcdir)/root $^ LinkDef.h
 
 lib_LTLIBRARIES = libROOTobject.la

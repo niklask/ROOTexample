@@ -30,7 +30,7 @@ root_dict.cpp: $(rootcommon_CLASSDEFS)
 	$(ROOTCINT_BIN) -v -f $@ -c -p -I$(top_srcdir)/root $^ LinkDef.h
 
 lib_LTLIBRARIES = libROOTobject.la
-libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE) root_dict.cpp
+libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE)
 nodist_libROOTobject_la_SOURCES = root_dict.cpp root_dict.h
 libROOTobject_la_CXXFLAGS = $(MYCFLAGS) $(EXT_INCLUDES)
 libROOTobject_la_LDFLAGS = -version-info $(LIB_VERSION)

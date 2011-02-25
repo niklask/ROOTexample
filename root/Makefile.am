@@ -26,11 +26,12 @@ ROOTCINT_FLAGS = -D__extension__="" -D__attribute__\\\(X\\\)="" -D__const=const 
 
 MYCFLAGS = -D__STDC_LIMIT_MACROS -D__STDC_CONSTANT_MACROS
 
-root_dict.cpp: $(rootcommon_CLASSDEFS)
+root_dict.cpp root_dict.h: $(rootcommon_CLASSDEFS)
 	$(ROOTCINT_BIN) -v -f $@ -c -p -I$(top_srcdir)/root $^ LinkDef.h
 
 lib_LTLIBRARIES = libROOTobject.la
 libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE) $(builddir)/root_dict.cpp $(builddir)/root_dict.h
+nodist_libROOTobject_la_SOURCES = $(builddir)/root_dict.cpp $(builddir)/root_dict.h
 libROOTobject_la_CXXFLAGS = $(MYCFLAGS) $(EXT_INCLUDES)
 libROOTobject_la_LDFLAGS = -version-info $(LIB_VERSION)
 

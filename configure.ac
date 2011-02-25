@@ -16,6 +16,7 @@ AC_LANG_CPLUSPLUS
 
 dnl Check for programs
 AC_PROG_CXX
+AC_PROG_LN_S
 
 dnl Disable build of static libraries
 AM_DISABLE_STATIC

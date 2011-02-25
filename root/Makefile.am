@@ -33,7 +33,7 @@ root_dict.cpp: $(rootcommon_CLASSDEFS)
 
 lib_LTLIBRARIES = libROOTobject.la
 libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE)
-nodist_libROOTobject_la_SOURCES = ˚$(BUILT_SOURCES)
+nodist_libROOTobject_la_SOURCES = $(BUILT_SOURCES)
 libROOTobject_la_CXXFLAGS = $(MYCFLAGS) $(EXT_INCLUDES)
 libROOTobject_la_LDFLAGS = -version-info $(LIB_VERSION)
 

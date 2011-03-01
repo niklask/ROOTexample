@@ -37,6 +37,14 @@ nodist_libROOTobject_la_SOURCES = $(BUILT_SOURCES)
 libROOTobject_la_CXXFLAGS = $(MYCFLAGS) $(EXT_INCLUDES)
 libROOTobject_la_LDFLAGS = -version-info $(LIB_VERSION)
 
+#
+# The Mac OS 10.x libtool build .dylib files by default (the .so files built
+# using -module cannot be linked to) and ROOT CINT requires the dynamic
+# library to be a .so and not a .dylib file to load it using
+# gSystem->Load(...). A work-around for this is to make a symbolic link
+# from libROOTobject.dylib to libROOTobject.so. For that we use two hooks;
+# one for install to create the link and one uninstall to delete it. 
+#
 if DARWIN
 install-exec-hook:
 	cd $(DESTDIR)$(libdir) && \

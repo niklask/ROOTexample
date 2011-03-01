@@ -38,6 +38,21 @@ dnl Turn on -Wall if compiling with gcc
 #AC_COMPILE_WARNINGS
 
 dnl
+dnl Determine the host OS and set the appropriate variable for use in Makefile.am
+dnl
+case "$host_os" in
+*darwin* | *rhapsody* | *macosx*)
+  build_target="darwin"
+  ;;
+linux*)
+  build_target="linux"
+  ;;
+esac
+
+AM_CONDITIONAL(DARWIN,  test "$build_target" = "darwin")
+AM_CONDITIONAL(LINUX,  test "$build_target" = "linux")
+
+dnl
 dnl Check for ROOT installation (required)
 dnl
 AC_ARG_WITH([root-dir],

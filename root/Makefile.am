@@ -18,7 +18,7 @@ rootcommon_CLASSDEFS = \
 
 EXTRA_DIST = LinkDef.h
 
-LIB_VERSION = 0:0:0
+LIB_VERSION = 1:0:0
 
 library_includedir = $(includedir)/root
 
@@ -36,6 +36,17 @@ libROOTobject_la_SOURCES = $(rootcommon_HEADERS) $(rootcommon_SOURCE)
 nodist_libROOTobject_la_SOURCES = $(BUILT_SOURCES)
 libROOTobject_la_CXXFLAGS = $(MYCFLAGS) $(EXT_INCLUDES)
 libROOTobject_la_LDFLAGS = -version-info $(LIB_VERSION)
+
+if DARWIN
+install-exec-hook:
+	cd $(DESTDIR)$(libdir) && \
+		rm -f libROOTobject.so && \
+		$(LN_S) libROOTobject.dylib libROOTobject.so
+
+uninstall-hook:
+	cd $(DESTDIR)$(libdir) && \
+		rm -f libROOTobject.so
+endif
 
 # make sure to delete generated code when with 'make clean'
 clean-local:

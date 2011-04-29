@@ -47,4 +47,5 @@ std::ostream& operator << (std::ostream& os, const MyROOTObject& object)
        << "' { m_int = " << object.m_int
        << "; m_double = " << object.m_double 
        << " }";
+    return os;
 }
